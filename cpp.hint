@@ -1,0 +1,2 @@
+#define MGS2INPUT_API __declspec(dllexport)
+#define MGS2INPUT_API __declspec(dllimport)
