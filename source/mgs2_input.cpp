@@ -155,7 +155,7 @@ void update_input() {
         CPatch::SetChar(0x00EDACA1, inputDpadDownPressure);
         CPatch::SetChar(0x00EDACA3, inputDpadLeftPressure);
 
-        // Ramp sticks towards edges
+        // Ramp sticks towards corners
         if (inputLeftStickX < 40) { inputLeftStickX = 0; }
         if (inputLeftStickY < 40) { inputLeftStickY = 0; }
         if (inputRightStickX < 40) { inputRightStickX = 0; }

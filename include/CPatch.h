@@ -1,4 +1,7 @@
+// Source: https://github.com/ExOptsTeam/NFSUExOpts/blob/master/includes/CPatch.h
+
 #pragma once
+
 #include <Windows.h>
 
 class CPatch

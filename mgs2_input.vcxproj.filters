@@ -27,10 +27,7 @@
     <ClInclude Include="include\xinput_device.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\dualshock3_device.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\dualshock4_device.h">
+    <ClInclude Include="include\CPatch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,12 +36,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\mgs2_input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\dualshock3_device.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\dualshock4_device.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\xinput_device.cpp">

@@ -1,15 +1,6 @@
 #pragma once
 
-#include <Windows.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-#include <thread>
-
-#include "CPatch.h"
-#include "dualshock3_device.h"
-#include "dualshock4_device.h"
+#include "framework.h"
 #include "xinput_device.h"
 
 // Digital Inputs

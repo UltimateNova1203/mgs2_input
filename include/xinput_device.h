@@ -1,5 +1,5 @@
 #pragma once
-#include "mgs2_input.h"
-#include <Xinput.h>
+
+#include "framework.h"
 
 extern void use_xinput();
