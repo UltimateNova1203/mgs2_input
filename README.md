@@ -103,40 +103,40 @@ Only appears to be used when letting off the square button to lower weapon witho
 
 ### Button Map Layout
 
-| Offset      | Bit   | Input              | Notes       |
-| ----------- | ----- | ------------------ | ----------- |
-| +0x00000000 | Bit 0 | L1 Button          | 0=Off, 1=On |
-| +0x00000000 | Bit 1 | R1 Button          | 0=Off, 1=On |
-| +0x00000000 | Bit 2 | L2 Button          | 0=Off, 1=On |
-| +0x00000000 | Bit 3 | R2 Button          | 0=Off, 1=On |
-| +0x00000000 | Bit 4 | Triangle Button    | 0=Off, 1=On |
-| +0x00000000 | Bit 5 | Circle Button      | 0=Off, 1=On |
-| +0x00000000 | Bit 6 | Cross Button       | 0=Off, 1=On |
-| +0x00000000 | Bit 7 | Square Button      | 0=Off, 1=On |
-|             |       |                    |             |
-| +0x00000001 | Bit 0 | Select Button      | 0=Off, 1=On |
-| +0x00000001 | Bit 1 | L3 Button          | 0=Off, 1=On |
-| +0x00000001 | Bit 2 | R3 Button          | 0=Off, 1=On |
-| +0x00000001 | Bit 3 | Start Button       | 0=Off, 1=On |
-| +0x00000001 | Bit 4 | Dpad Up            | 0=Off, 1=On |
-| +0x00000001 | Bit 5 | Dpad Right         | 0=Off, 1=On |
-| +0x00000001 | Bit 6 | Dpad Down          | 0=Off, 1=On |
-| +0x00000001 | Bit 7 | Dpad Left          | 0=Off, 1=On |
-|             |       |                    |             |
-| +0x00000002 | Bit 0 | Toggle FPS Mode    | 0=Off, 1=On |
-| +0x00000002 | Bit 1 | Slow Pressure Ramp | 0=Off, 1=On |
-| +0x00000002 | Bit 2 | Weak Pressure (48) | 0=Off, 1=On |
-| +0x00000002 | Bit 3 | EX3                | Unknown     |
-| +0x00000002 | Bit 4 | EX4                | Unknown     |
-| +0x00000002 | Bit 5 | EX5                | Unknown     |
-| +0x00000002 | Bit 6 | EX6                | Unknown     |
-| +0x00000002 | Bit 7 | EX7                | Unknown     |
-|             |       |                    |             |
-| +0x00000003 | Bit 0 | Unknown            | Unknown     |
-| +0x00000003 | Bit 1 | Unknown            | Unknown     |
-| +0x00000003 | Bit 2 | Unknown            | Unknown     |
-| +0x00000003 | Bit 3 | Unknown            | Unknown     |
-| +0x00000003 | Bit 4 | Unknown            | Unknown     |
-| +0x00000003 | Bit 5 | Unknown            | Unknown     |
-| +0x00000003 | Bit 6 | Unknown            | Unknown     |
-| +0x00000003 | Bit 7 | Unknown            | Unknown     |
+| Offset | Bit   | Input              | Notes       |
+| ------ | ----- | ------------------ | ----------- |
+| +0x0   | Bit 0 | L1 Button          | 0=Off, 1=On |
+| +0x0   | Bit 1 | R1 Button          | 0=Off, 1=On |
+| +0x0   | Bit 2 | L2 Button          | 0=Off, 1=On |
+| +0x0   | Bit 3 | R2 Button          | 0=Off, 1=On |
+| +0x0   | Bit 4 | Triangle Button    | 0=Off, 1=On |
+| +0x0   | Bit 5 | Circle Button      | 0=Off, 1=On |
+| +0x0   | Bit 6 | Cross Button       | 0=Off, 1=On |
+| +0x0   | Bit 7 | Square Button      | 0=Off, 1=On |
+|        |       |                    |             |
+| +0x1   | Bit 0 | Select Button      | 0=Off, 1=On |
+| +0x1   | Bit 1 | L3 Button          | 0=Off, 1=On |
+| +0x1   | Bit 2 | R3 Button          | 0=Off, 1=On |
+| +0x1   | Bit 3 | Start Button       | 0=Off, 1=On |
+| +0x1   | Bit 4 | Dpad Up            | 0=Off, 1=On |
+| +0x1   | Bit 5 | Dpad Right         | 0=Off, 1=On |
+| +0x1   | Bit 6 | Dpad Down          | 0=Off, 1=On |
+| +0x1   | Bit 7 | Dpad Left          | 0=Off, 1=On |
+|        |       |                    |             |
+| +0x2   | Bit 0 | Toggle FPS Mode    | 0=Off, 1=On |
+| +0x2   | Bit 1 | Slow Pressure Ramp | 0=Off, 1=On |
+| +0x2   | Bit 2 | Weak Pressure (48) | 0=Off, 1=On |
+| +0x2   | Bit 3 | EX3                | Unknown     |
+| +0x2   | Bit 4 | EX4                | Unknown     |
+| +0x2   | Bit 5 | EX5                | Unknown     |
+| +0x2   | Bit 6 | EX6                | Unknown     |
+| +0x2   | Bit 7 | EX7                | Unknown     |
+|        |       |                    |             |
+| +0x3   | Bit 0 | Unknown            | Unknown     |
+| +0x3   | Bit 1 | Unknown            | Unknown     |
+| +0x3   | Bit 2 | Unknown            | Unknown     |
+| +0x3   | Bit 3 | Unknown            | Unknown     |
+| +0x3   | Bit 4 | Unknown            | Unknown     |
+| +0x3   | Bit 5 | Unknown            | Unknown     |
+| +0x3   | Bit 6 | Unknown            | Unknown     |
+| +0x3   | Bit 7 | Unknown            | Unknown     |
