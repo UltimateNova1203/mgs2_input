@@ -33,71 +33,95 @@ Only appears to be used when letting off the square button to lower weapon witho
 
 ## Input Memory Addresses
 
-| Address  | Type | Function            | Notes             |
-| -------- | ---- | ------------------- | ----------------- |
-| 00EDAC98 | BYTE | Primary Buttons     | 255=Off, 0=All On |
-| 00EDAC98 | BIT0 | L1 Button           | 1=Off, 0=On       |
-| 00EDAC98 | BIT1 | R1 Button           | 1=Off, 0=On       |
-| 00EDAC98 | BIT2 | L2 Button           | 1=Off, 0=On       |
-| 00EDAC98 | BIT3 | R2 Button           | 1=Off, 0=On       |
-| 00EDAC98 | BIT4 | Triangle Button     | 1=Off, 0=On       |
-| 00EDAC98 | BIT5 | Circle Button       | 1=Off, 0=On       |
-| 00EDAC98 | BIT6 | Cross Button        | 1=Off, 0=On       |
-| 00EDAC98 | BIT7 | Square Button       | 1=Off, 0=On       |
-|          |      |                     |                   |
-| 00EDAC99 | BYTE | Secondary Buttons   | 255=Off, 0=All On |
-| 00EDAC98 | BIT0 | Select Button       | 1=Off, 0=On       |
-| 00EDAC98 | BIT1 | L3 Button           | 1=Off, 0=On       |
-| 00EDAC98 | BIT2 | R3 Button           | 1=Off, 0=On       |
-| 00EDAC98 | BIT3 | Start Button        | 1=Off, 0=On       |
-| 00EDAC98 | BIT4 | Dpad Up             | 1=Off, 0=On       |
-| 00EDAC98 | BIT5 | Dpad Right          | 1=Off, 0=On       |
-| 00EDAC98 | BIT6 | Dpad Down           | 1=Off, 0=On       |
-| 00EDAC98 | BIT7 | Dpad Left           | 1=Off, 0=On       |
-|          |      |                     |                   |
-| 00EDAC9C | BYTE | Right Stick X Axis  | 0-255, Left-Right |
-| 00EDAC9D | BYTE | Right Stick Y Axis  | 0-255, Up-Down    |
-| 00EDAC9E | BYTE | Left Stick X Axis   | 0-255, Left-Right |
-| 00EDAC9F | BYTE | Left Stick Y Axis   | 0-255, Up-Down    |
-|          |      |                     |                   |
-| 00EDACA0 | BYTE | Dpad Right Pressure | 255=100%, 0=0%    |
-| 00EDACA1 | BYTE | Dpad Down Pressure  | 255=100%, 0=0%    |
-| 00EDACA2 | BYTE | Dpad Up Pressure    | 255=100%, 0=0%    |
-| 00EDACA3 | BYTE | Dpad Left Pressure  | 255=100%, 0=0%    |
-| 00EDACA4 | BYTE | Triangle Pressure   | 255=100%, 0=0%    |
-| 00EDACA5 | BYTE | Circle Pressure     | 255=100%, 0=0%    |
-| 00EDACA6 | BYTE | Cross Pressure      | 255=100%, 0=0%    |
-| 00EDACA7 | BYTE | Square Pressure     | 255=100%, 0=0%    |
-| 00EDACA8 | BYTE | L2 Pressure         | 255=100%, 0=0%    |
-| 00EDACA9 | BYTE | R2 Pressure         | 255=100%, 0=0%    |
-| 00EDACAA | BYTE | L1 Pressure         | 255=100%, 0=0%    |
-| 00EDACAB | BYTE | R1 Pressure         | 255=100%, 0=0%    |
-|          |      |                     |                   |
-| 00EDAC8D | BYTE | Rumble              | 255=100%, 0=0%    |
-|          |      |                     |                   |
-| 00EDAC9A | BYTE | Extra Functions     | 255=Off, 0=All    |
-| 00EDAC9A | BIT1 | Slow Pressure Ramp  | 1=Off, 0=On       |
-| 00EDAC9A | BIT2 | Weak Pressure (48)  | 1=Off, 0=On       |
+| Address  | Type | Function            | Notes                   |
+| -------- | ---- | ------------------- | -----------------       |
+| 00A00A8C | Bigg | Input Mapping       | Controlled Individually |
+| 00EDAC98 | BYTE | Primary Buttons     | 255=Off, 0=All On       |
+| 00EDAC98 | BIT0 | L1 Button           | 1=Off, 0=On             |
+| 00EDAC98 | BIT1 | R1 Button           | 1=Off, 0=On             |
+| 00EDAC98 | BIT2 | L2 Button           | 1=Off, 0=On             |
+| 00EDAC98 | BIT3 | R2 Button           | 1=Off, 0=On             |
+| 00EDAC98 | BIT4 | Triangle Button     | 1=Off, 0=On             |
+| 00EDAC98 | BIT5 | Circle Button       | 1=Off, 0=On             |
+| 00EDAC98 | BIT6 | Cross Button        | 1=Off, 0=On             |
+| 00EDAC98 | BIT7 | Square Button       | 1=Off, 0=On             |
+|          |      |                     |                         |
+| 00EDAC99 | BYTE | Secondary Buttons   | 255=Off, 0=All On       |
+| 00EDAC98 | BIT0 | Select Button       | 1=Off, 0=On             |
+| 00EDAC98 | BIT1 | L3 Button           | 1=Off, 0=On             |
+| 00EDAC98 | BIT2 | R3 Button           | 1=Off, 0=On             |
+| 00EDAC98 | BIT3 | Start Button        | 1=Off, 0=On             |
+| 00EDAC98 | BIT4 | Dpad Up             | 1=Off, 0=On             |
+| 00EDAC98 | BIT5 | Dpad Right          | 1=Off, 0=On             |
+| 00EDAC98 | BIT6 | Dpad Down           | 1=Off, 0=On             |
+| 00EDAC98 | BIT7 | Dpad Left           | 1=Off, 0=On             |
+|          |      |                     |                         |
+| 00EDAC9C | BYTE | Right Stick X Axis  | 0-255, Left-Right       |
+| 00EDAC9D | BYTE | Right Stick Y Axis  | 0-255, Up-Down          |
+| 00EDAC9E | BYTE | Left Stick X Axis   | 0-255, Left-Right       |
+| 00EDAC9F | BYTE | Left Stick Y Axis   | 0-255, Up-Down          |
+|          |      |                     |                         |
+| 00EDACA0 | BYTE | Dpad Right Pressure | 255=100%, 0=0%          |
+| 00EDACA1 | BYTE | Dpad Down Pressure  | 255=100%, 0=0%          |
+| 00EDACA2 | BYTE | Dpad Up Pressure    | 255=100%, 0=0%          |
+| 00EDACA3 | BYTE | Dpad Left Pressure  | 255=100%, 0=0%          |
+| 00EDACA4 | BYTE | Triangle Pressure   | 255=100%, 0=0%          |
+| 00EDACA5 | BYTE | Circle Pressure     | 255=100%, 0=0%          |
+| 00EDACA6 | BYTE | Cross Pressure      | 255=100%, 0=0%          |
+| 00EDACA7 | BYTE | Square Pressure     | 255=100%, 0=0%          |
+| 00EDACA8 | BYTE | L2 Pressure         | 255=100%, 0=0%          |
+| 00EDACA9 | BYTE | R2 Pressure         | 255=100%, 0=0%          |
+| 00EDACAA | BYTE | L1 Pressure         | 255=100%, 0=0%          |
+| 00EDACAB | BYTE | R1 Pressure         | 255=100%, 0=0%          |
+|          |      |                     |                         |
+| 00EDAC8D | BYTE | Rumble              | 255=100%, 0=0%          |
+|          |      |                     |                         |
+| 00EDAC9A | BYTE | Extra Functions     | 255=Off, 0=All          |
+| 00EDAC9A | BIT1 | Slow Pressure Ramp  | 1=Off, 0=On             |
+| 00EDAC9A | BIT2 | Weak Pressure (48)  | 1=Off, 0=On             |
 
 ## Button Mapping Memory Addresses
 ### Cross Button
 
-| Address  | Type | Function            | Notes             |
-| -------- | ---- | ------------------- | ----------------- |
-| 01186A80 | INT  | Cross Button Map    | Pointer 00A00A8C  |
-| 01186A80 | BIT0 | L1 Button           | 0=Off, 1=On       |
-| 01186A80 | BIT1 | R1 Button           | 0=Off, 1=On       |
-| 01186A80 | BIT2 | L2 Button           | 0=Off, 1=On       |
-| 01186A80 | BIT3 | R2 Button           | 0=Off, 1=On       |
-| 01186A80 | BIT4 | Triangle Button     | 0=Off, 1=On       |
-| 01186A80 | BIT5 | Circle Button       | 0=Off, 1=On       |
-| 01186A80 | BIT6 | Cross Button        | 0=Off, 1=On       |
-| 01186A80 | BIT7 | Square Button       | 0=Off, 1=On       |
-| 01186A81 | BIT0 | Select Button       | 0=Off, 1=On       |
-| 01186A81 | BIT1 | L3 Button           | 0=Off, 1=On       |
-| 01186A81 | BIT2 | R3 Button           | 0=Off, 1=On       |
-| 01186A81 | BIT3 | Start Button        | 0=Off, 1=On       |
-| 01186A81 | BIT4 | Dpad Up             | 0=Off, 1=On       |
-| 01186A81 | BIT5 | Dpad Right          | 0=Off, 1=On       |
-| 01186A81 | BIT6 | Dpad Down           | 0=Off, 1=On       |
-| 01186A81 | BIT7 | Dpad Left           | 0=Off, 1=On       |
+| Address  | Type | Function            | Notes                   |
+| -------- | ---- | ------------------- | ----------------------- |
+| 01186A80 | INT  | Cross Button Map    |                         |
+| 01186A80 | BIT0 | L1 Button           | 0=Off, 1=On             |
+| 01186A80 | BIT1 | R1 Button           | 0=Off, 1=On             |
+| 01186A80 | BIT2 | L2 Button           | 0=Off, 1=On             |
+| 01186A80 | BIT3 | R2 Button           | 0=Off, 1=On             |
+| 01186A80 | BIT4 | Triangle Button     | 0=Off, 1=On             |
+| 01186A80 | BIT5 | Circle Button       | 0=Off, 1=On             |
+| 01186A80 | BIT6 | Cross Button        | 0=Off, 1=On             |
+| 01186A80 | BIT7 | Square Button       | 0=Off, 1=On             |
+| 01186A81 | BIT0 | Select Button       | 0=Off, 1=On             |
+| 01186A81 | BIT1 | L3 Button           | 0=Off, 1=On             |
+| 01186A81 | BIT2 | R3 Button           | 0=Off, 1=On             |
+| 01186A81 | BIT3 | Start Button        | 0=Off, 1=On             |
+| 01186A81 | BIT4 | Dpad Up             | 0=Off, 1=On             |
+| 01186A81 | BIT5 | Dpad Right          | 0=Off, 1=On             |
+| 01186A81 | BIT6 | Dpad Down           | 0=Off, 1=On             |
+| 01186A81 | BIT7 | Dpad Left           | 0=Off, 1=On             |
+
+
+### Circle Button
+
+| Address  | Type | Function            | Notes                   |
+| -------- | ---- | ------------------- | ----------------------- |
+| 01186A84 | INT  | Circle Button Map   |                         |
+| 01186A84 | BIT0 | L1 Button           | 0=Off, 1=On             |
+| 01186A84 | BIT1 | R1 Button           | 0=Off, 1=On             |
+| 01186A84 | BIT2 | L2 Button           | 0=Off, 1=On             |
+| 01186A84 | BIT3 | R2 Button           | 0=Off, 1=On             |
+| 01186A84 | BIT4 | Triangle Button     | 0=Off, 1=On             |
+| 01186A84 | BIT5 | Circle Button       | 0=Off, 1=On             |
+| 01186A84 | BIT6 | Cross Button        | 0=Off, 1=On             |
+| 01186A84 | BIT7 | Square Button       | 0=Off, 1=On             |
+| 01186A85 | BIT0 | Select Button       | 0=Off, 1=On             |
+| 01186A85 | BIT1 | L3 Button           | 0=Off, 1=On             |
+| 01186A85 | BIT2 | R3 Button           | 0=Off, 1=On             |
+| 01186A85 | BIT3 | Start Button        | 0=Off, 1=On             |
+| 01186A85 | BIT4 | Dpad Up             | 0=Off, 1=On             |
+| 01186A85 | BIT5 | Dpad Right          | 0=Off, 1=On             |
+| 01186A85 | BIT6 | Dpad Down           | 0=Off, 1=On             |
+| 01186A85 | BIT7 | Dpad Left           | 0=Off, 1=On             |
