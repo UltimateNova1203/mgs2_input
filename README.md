@@ -7,7 +7,7 @@
 * Slightly faster weapon disengage speed via the L3 button.
 * Removes DInput and Keyboard/Mouse inputs, only Xinput is available at this time.
 
-# Addresses
+# Input Information
 
 ## Primary/Secondary Buttons
 
@@ -31,7 +31,7 @@ Simple BYTE actuates rumble, 0 being 0% rumble, and 255 being 100% rumble. There
 
 Only appears to be used when letting off the square button to lower weapon without firing. If set to 253, game will consider you to be lowering your weapon, and can let off the square button fully. If left to 255, letting off square will fire the weapon.
 
-## Memory Address
+## Input Memory Addresses
 
 | Address  | Type | Function            | Notes |
 | -------- | ---- | ------------------- | ----- |
@@ -75,4 +75,26 @@ Only appears to be used when letting off the square button to lower weapon witho
 |          |      |                     |                   |
 | 00EDAC8D | BYTE | Rumble              | 255=100%, 0=0%    |
 |          |      |                     |                   |
-| 00EDAC9A | BYTE | Pressure Check      | 255=Off, 253=Low  |
+| 00EDAC9A | BYTE | Extra Functions     | 255=Off, 0=All    |
+| 00EDAC9A | BIT1 | Slow Pressure Ramp  | 1=Off, 0=On       |
+| 00EDAC9A | BIT2 | Weak Pressure (48)  | 1=Off, 0=On       |
+
+## Button Mapping Memory Addresses
+### Cross Button
+| 01186A81 | BYTE | Cross Button Map    | Pointer 00A00A8C  |
+| 01186A81 | BIT0 | L1 Button           | 0=Off, 1=On       |
+| 01186A81 | BIT1 | R1 Button           | 0=Off, 1=On       |
+| 01186A81 | BIT2 | L2 Button           | 0=Off, 1=On       |
+| 01186A81 | BIT3 | R2 Button           | 0=Off, 1=On       |
+| 01186A81 | BIT4 | Triangle Button     | 0=Off, 1=On       |
+| 01186A81 | BIT5 | Circle Button       | 0=Off, 1=On       |
+| 01186A81 | BIT6 | Cross Button        | 0=Off, 1=On       |
+| 01186A81 | BIT7 | Square Button       | 0=Off, 1=On       |
+| 01186A81 | BIT0 | Select Button       | 0=Off, 1=On       |
+| 01186A81 | BIT1 | L3 Button           | 0=Off, 1=On       |
+| 01186A81 | BIT2 | R3 Button           | 0=Off, 1=On       |
+| 01186A81 | BIT3 | Start Button        | 0=Off, 1=On       |
+| 01186A81 | BIT4 | Dpad Up             | 0=Off, 1=On       |
+| 01186A81 | BIT5 | Dpad Right          | 0=Off, 1=On       |
+| 01186A81 | BIT6 | Dpad Down           | 0=Off, 1=On       |
+| 01186A81 | BIT7 | Dpad Left           | 0=Off, 1=On       |
