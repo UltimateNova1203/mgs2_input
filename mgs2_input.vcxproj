@@ -54,8 +54,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);hidapi.lib;Xinput.lib</AdditionalDependencies>
-      <Version>0.1</Version>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);Xinput.lib</AdditionalDependencies>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
     </Link>
@@ -67,12 +66,12 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="include\CPatch.h" />
     <ClInclude Include="include\mgs2_input.h" />
-    <ClInclude Include="include\xinput_device.h" />
+    <ClInclude Include="include\device_xinput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="source\mgs2_input.cpp" />
-    <ClCompile Include="source\xinput_device.cpp" />
+    <ClCompile Include="source\device_xinput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

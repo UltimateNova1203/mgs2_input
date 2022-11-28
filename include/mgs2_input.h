@@ -1,7 +1,6 @@
 #pragma once
 
 #include "framework.h"
-#include "xinput_device.h"
 
 // Digital Inputs
 extern bool inputCross;
