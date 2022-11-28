@@ -38,6 +38,9 @@ BYTE inputDpadRightPressure = 0;
 BYTE inputDpadDownPressure = 0;
 BYTE inputDpadLeftPressure = 0;
 
+// Rumble
+BYTE outputRumble = 0;
+
 void pad_init() {
     // Disable buttons
     CPatch::Nop(0x008CF65E, 6);
@@ -175,6 +178,14 @@ void update_input() {
         CPatch::SetChar(0x00EDAC9F, gameLeftStickY);
         CPatch::SetChar(0x00EDAC9C, gameRightStickX);
         CPatch::SetChar(0x00EDAC9D, gameRightStickY);
+
+        // Update Rumble
+        BYTE* gameRumble = (BYTE*)0x00EDAC8D;
+
+        if (*gameRumble > 0 && *gameRumble < 255) {
+            outputRumble = *gameRumble;
+        }
+        else { outputRumble = 0; }
 
         // Polling rate 250Hz
         Sleep(4);

@@ -40,5 +40,8 @@ extern BYTE inputDpadRightPressure;
 extern BYTE inputDpadDownPressure;
 extern BYTE inputDpadLeftPressure;
 
+// Rumble
+extern BYTE outputRumble;
+
 extern void init();
 extern void pad_init();

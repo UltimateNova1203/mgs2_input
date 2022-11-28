@@ -24,6 +24,7 @@ short xinputRightStickY = 0;
 void use_xinput() {
     for (DWORD ControllerIndex = 0; ControllerIndex < XUSER_MAX_COUNT; ++ControllerIndex) {
         XINPUT_STATE ControllerState;
+        XINPUT_VIBRATION ControllerVibration;
 
         if (XInputGetState(ControllerIndex, &ControllerState) == ERROR_SUCCESS) {
 
@@ -47,6 +48,11 @@ void use_xinput() {
             xinputLeftStickY = ControllerState.Gamepad.sThumbLY;
             xinputRightStickX = ControllerState.Gamepad.sThumbRX;
             xinputRightStickY = ControllerState.Gamepad.sThumbRY;
+
+            // Rumble Support
+            ControllerVibration.wLeftMotorSpeed = outputRumble * 256;
+            ControllerVibration.wRightMotorSpeed = outputRumble * 256;
+            XInputSetState(ControllerIndex, &ControllerVibration);
 
             // A Button
             if (xinputA) {
@@ -125,18 +131,10 @@ void use_xinput() {
             else { inputDpadLeft = false; }
 
             if (xinputDpadUp || xinputDpadRight || xinputDpadDown || xinputDpadLeft) {
-#ifdef XINPUT_DPAD_STALK
                 inputDpadUpPressure = 48;
                 inputDpadRightPressure = 48;
                 inputDpadDownPressure = 48;
                 inputDpadLeftPressure = 48;
-#endif
-#ifndef XINPUT_DPAD_STALK
-                inputDpadUpPressure = 255;
-                inputDpadRightPressure = 255;
-                inputDpadDownPressure = 255;
-                inputDpadLeftPressure = 255;
-#endif
             }
 
             if (!xinputDpadUp && !xinputDpadRight && !xinputDpadDown && !xinputDpadLeft) {
