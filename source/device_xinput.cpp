@@ -185,8 +185,8 @@ void use_xinput() {
             }
 
             // Left Thumb
-            if (xinputLeftThumb) { CPatch::SetChar(0x00EDAC9A, 253); }
-            else { CPatch::SetChar(0x00EDAC9A, 255); }
+            if (xinputLeftThumb) { inputL3 = true; }
+            else { inputL3 = false; }
 
             // Right Thumb
             if (xinputRightThumb) { inputR3 = true; }

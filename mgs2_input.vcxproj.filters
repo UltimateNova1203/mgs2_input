@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\hidapi">
+      <UniqueIdentifier>{fb0f996d-bce1-4afe-8f67-374b61ced877}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -30,6 +33,24 @@
     <ClInclude Include="include\CPatch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\device_dualshock4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hidapi\hidapi.h">
+      <Filter>Header Files\hidapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hidapi\hidapi_cfgmgr32.h">
+      <Filter>Header Files\hidapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hidapi\hidapi_hidclass.h">
+      <Filter>Header Files\hidapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hidapi\hidapi_hidsdi.h">
+      <Filter>Header Files\hidapi</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hidapi\hidapi_hidpi.h">
+      <Filter>Header Files\hidapi</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -39,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\device_xinput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\device_dualshock4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\hid.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <Windows.h>
+#include "framework.h"
 
 class CPatch
 {

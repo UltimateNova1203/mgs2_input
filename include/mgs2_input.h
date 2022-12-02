@@ -3,22 +3,22 @@
 #include "framework.h"
 
 // Digital Inputs
-extern bool inputCross;
-extern bool inputCircle;
-extern bool inputTriangle;
-extern bool inputSquare;
-extern bool inputL1;
-extern bool inputL2;
-extern bool inputL3;
-extern bool inputR1;
-extern bool inputR2;
-extern bool inputR3;
-extern bool inputStart;
-extern bool inputSelect;
-extern bool inputDpadUp;
-extern bool inputDpadRight;
-extern bool inputDpadDown;
-extern bool inputDpadLeft;
+extern BOOL inputCross;
+extern BOOL inputCircle;
+extern BOOL inputTriangle;
+extern BOOL inputSquare;
+extern BOOL inputL1;
+extern BOOL inputL2;
+extern BOOL inputL3;
+extern BOOL inputR1;
+extern BOOL inputR2;
+extern BOOL inputR3;
+extern BOOL inputStart;
+extern BOOL inputSelect;
+extern BOOL inputDpadUp;
+extern BOOL inputDpadRight;
+extern BOOL inputDpadDown;
+extern BOOL inputDpadLeft;
 
 // Analog Sticks
 extern BYTE inputLeftStickX;
@@ -42,6 +42,9 @@ extern BYTE inputDpadLeftPressure;
 
 // Rumble
 extern BYTE outputRumble;
+
+// Say I fixed it
+extern BOOL ds4Initialized;
 
 extern void init();
 extern void pad_init();

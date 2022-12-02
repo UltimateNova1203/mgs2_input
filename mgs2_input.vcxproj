@@ -46,7 +46,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)include;$(SolutionDir)include\hidapi</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -65,11 +65,19 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="include\CPatch.h" />
+    <ClInclude Include="include\device_dualshock4.h" />
+    <ClInclude Include="include\hidapi\hidapi.h" />
+    <ClInclude Include="include\hidapi\hidapi_cfgmgr32.h" />
+    <ClInclude Include="include\hidapi\hidapi_hidclass.h" />
+    <ClInclude Include="include\hidapi\hidapi_hidpi.h" />
+    <ClInclude Include="include\hidapi\hidapi_hidsdi.h" />
     <ClInclude Include="include\mgs2_input.h" />
     <ClInclude Include="include\device_xinput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="source\device_dualshock4.cpp" />
+    <ClCompile Include="source\hid.c" />
     <ClCompile Include="source\mgs2_input.cpp" />
     <ClCompile Include="source\device_xinput.cpp" />
   </ItemGroup>

@@ -1,22 +1,22 @@
-#include "../include/mgs2_input.h"
+#include "framework.h"
 
 // Digital Inputs
-bool inputCross = false;
-bool inputCircle = false;
-bool inputTriangle = false;
-bool inputSquare = false;
-bool inputL1 = false;
-bool inputL2 = false;
-bool inputL3 = false;
-bool inputR1 = false;
-bool inputR2 = false;
-bool inputR3 = false;
-bool inputStart = false;
-bool inputSelect = false;
-bool inputDpadUp = false;
-bool inputDpadRight = false;
-bool inputDpadDown = false;
-bool inputDpadLeft = false;
+BOOL inputCross = false;
+BOOL inputCircle = false;
+BOOL inputTriangle = false;
+BOOL inputSquare = false;
+BOOL inputL1 = false;
+BOOL inputL2 = false;
+BOOL inputL3 = false;
+BOOL inputR1 = false;
+BOOL inputR2 = false;
+BOOL inputR3 = false;
+BOOL inputStart = false;
+BOOL inputSelect = false;
+BOOL inputDpadUp = false;
+BOOL inputDpadRight = false;
+BOOL inputDpadDown = false;
+BOOL inputDpadLeft = false;
 
 // Analog Sticks
 BYTE inputLeftStickX = 127;
@@ -37,11 +37,37 @@ BYTE inputDpadUpPressure = 0;
 BYTE inputDpadRightPressure = 0;
 BYTE inputDpadDownPressure = 0;
 BYTE inputDpadLeftPressure = 0;
+BOOL inputSlowPressure = false;
 
 // Rumble
 BYTE outputRumble = 0;
 
-void pad_init() {
+void update_input() {
+    BYTE gamePrimaryButtons = 255;      // 0x00EDAC98
+    BYTE gameL1 = 1;                    // Bit 0
+    BYTE gameR1 = 2;                    // Bit 1
+    BYTE gameL2 = 4;                    // Bit 2
+    BYTE gameR2 = 8;                    // Bit 3
+    BYTE gameTriangle = 16;             // Bit 4
+    BYTE gameCircle = 32;               // Bit 5
+    BYTE gameCross = 64;                // Bit 6
+    BYTE gameSquare = 128;              // Bit 7
+
+    BYTE gameSecondaryButtons = 255;    // 0x00EDAC99
+    BYTE gameSelect = 1;                // Bit 0
+    BYTE gameL3 = 2;                    // Bit 1
+    BYTE gameR3 = 4;                    // Bit 2
+    BYTE gameStart = 8;                 // Bit 3
+    BYTE gameDpadUp = 16;               // Bit 4
+    BYTE gameDpadRight = 32;            // Bit 5
+    BYTE gameDpadDown = 64;             // Bit 6
+    BYTE gameDpadLeft = 128;            // Bit 7
+
+    BYTE gameRightStickX = 127;         // 0x00EDAC9C
+    BYTE gameRightStickY = 127;         // 0x00EDAC9D
+    BYTE gameLeftStickX = 127;          // 0x00EDAC9E
+    BYTE gameLeftStickY = 127;          // 0x00EDAC9F
+
     // Disable buttons
     CPatch::Nop(0x008CF65E, 6);
 
@@ -78,39 +104,8 @@ void pad_init() {
 
     // Fix pressure check
     CPatch::SetChar(0x00EDAC9A, 255);
-}
-
-void update_input() {
-    pad_init();
-
-    BYTE gamePrimaryButtons = 255;      // 0x00EDAC98
-    BYTE gameL1 = 1;                    // Bit 0
-    BYTE gameR1 = 2;                    // Bit 1
-    BYTE gameL2 = 4;                    // Bit 2
-    BYTE gameR2 = 8;                    // Bit 3
-    BYTE gameTriangle = 16;             // Bit 4
-    BYTE gameCircle = 32;               // Bit 5
-    BYTE gameCross = 64;                // Bit 6
-    BYTE gameSquare = 128;              // Bit 7
-
-    BYTE gameSecondaryButtons = 255;    // 0x00EDAC99
-    BYTE gameSelect = 1;                // Bit 0
-    BYTE gameL3 = 2;                    // Bit 1
-    BYTE gameR3 = 4;                    // Bit 2
-    BYTE gameStart = 8;                 // Bit 3
-    BYTE gameDpadUp = 16;               // Bit 4
-    BYTE gameDpadRight = 32;            // Bit 5
-    BYTE gameDpadDown = 64;             // Bit 6
-    BYTE gameDpadLeft = 128;            // Bit 7
-
-    BYTE gameRightStickX = 127;         // 0x00EDAC9C
-    BYTE gameRightStickY = 127;         // 0x00EDAC9D
-    BYTE gameLeftStickX = 127;          // 0x00EDAC9E
-    BYTE gameLeftStickY = 127;          // 0x00EDAC9F
 
     while (true) {
-        use_xinput();
-
         // Reset input states
         gamePrimaryButtons = 255;
         gameSecondaryButtons = 255;
@@ -141,8 +136,8 @@ void update_input() {
         CPatch::SetChar(0x00EDAC99, gameSecondaryButtons);
 
         // Feather L2/R2 pressure
-        inputL2Pressure = inputL2Pressure * 0.7;
-        inputR2Pressure = inputR2Pressure * 0.7;
+        inputL2Pressure = inputL2Pressure * 0.7f;
+        inputR2Pressure = inputR2Pressure * 0.7f;
 
         // Update pressure states
         CPatch::SetChar(0x00EDACA6, inputCrossPressure);
@@ -157,6 +152,9 @@ void update_input() {
         CPatch::SetChar(0x00EDACA0, inputDpadRightPressure);
         CPatch::SetChar(0x00EDACA1, inputDpadDownPressure);
         CPatch::SetChar(0x00EDACA3, inputDpadLeftPressure);
+
+        if (inputSlowPressure) { CPatch::SetChar(0x00EDAC94, 253); }
+        else { CPatch::SetChar(0x00EDAC9A, 255); }
 
         // Ramp sticks towards corners
         if (inputLeftStickX < 40) { inputLeftStickX = 0; }
@@ -182,7 +180,7 @@ void update_input() {
         // Update Rumble
         BYTE* gameRumble = (BYTE*)0x00EDAC8D;
 
-        if (*gameRumble > 0 && *gameRumble < 255) {
+        if (*gameRumble >= 1 && *gameRumble <= 255) {
             outputRumble = *gameRumble;
         }
         else { outputRumble = 0; }
@@ -194,4 +192,5 @@ void update_input() {
 
 void init() {
     CreateThread(0, 0, (LPTHREAD_START_ROUTINE)&update_input, 0, 0, NULL);
+    CreateThread(0, 0, (LPTHREAD_START_ROUTINE)&update_ds4, 0, 0, NULL);
 }
