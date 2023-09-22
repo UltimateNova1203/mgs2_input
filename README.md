@@ -6,6 +6,7 @@
 * Sets DPAD to 20% pressure, to force walking mode (similar to MGS3 on PS2/PS3)
 * Slightly faster weapon disengage speed via the L3 button.
 * Removes DInput and Keyboard/Mouse inputs, only Xinput is available at this time.
+* This is ***not*** for the Master Collection
 
 # Input Information
 
